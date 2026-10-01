@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dani Geek | Developer & Designer</title>
 
   <meta
     name="description"
-    content="Personal developer and designer portfolio of Dani Geek."
-  />
+    content="Personal portfolio of Dani Geek — developer, designer and creative geek."
+  >
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -25,33 +25,101 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(57, 211, 83, 0.08), transparent 32%),
-        #050806;
-      color: #e6edf3;
+        radial-gradient(circle at 75% 10%, rgba(57, 211, 83, .10), transparent 28%),
+        radial-gradient(circle at 10% 20%, rgba(46, 160, 67, .05), transparent 25%),
+        #040705;
+      color: #ecf3ee;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .container {
-      width: min(1100px, 90%);
+      width: min(1120px, 90%);
       margin: auto;
     }
+
+
+    /* =========================
+       INTRO SCREEN
+    ========================== */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(circle at center, rgba(57, 211, 83, .13), transparent 35%),
+        #020403;
+
+      transition:
+        opacity .7s ease,
+        visibility .7s ease;
+    }
+
+    #intro.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      width: min(500px, 86vw);
+      text-align: center;
+    }
+
+    .intro-name {
+      margin-top: 18px;
+      color: #39d353;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+
+      opacity: 0;
+      transform: translateY(10px);
+
+      animation: introText .7s ease 1.3s forwards;
+    }
+
+    .intro-sub {
+      margin-top: 5px;
+      color: #7f9184;
+      font-size: 13px;
+      letter-spacing: 2px;
+
+      opacity: 0;
+      animation: introText .7s ease 1.7s forwards;
+    }
+
+
+    /* =========================
+       NAV
+    ========================== */
 
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 18px 0;
-      background: rgba(5, 8, 6, 0.88);
-      backdrop-filter: blur(12px);
+
       border-bottom: 1px solid #17351f;
+
+      background: rgba(4, 7, 5, .86);
+      backdrop-filter: blur(14px);
     }
 
     nav .container {
+      min-height: 72px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -59,70 +127,106 @@
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
       color: #39d353;
-      text-shadow: 0 0 14px rgba(57, 211, 83, 0.4);
+      font-weight: 900;
+      font-size: 22px;
+
+      text-shadow: 0 0 18px rgba(57, 211, 83, .28);
+    }
+
+    .logo span {
+      color: #ffffff;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      color: #9aa39c;
+      gap: 25px;
+
+      color: #8d9b91;
       font-size: 14px;
     }
 
     .nav-links a {
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .nav-links a:hover {
       color: #39d353;
-      text-shadow: 0 0 10px rgba(57, 211, 83, 0.35);
     }
+
+
+    /* =========================
+       HERO
+    ========================== */
 
     .hero {
       min-height: 88vh;
+
       display: flex;
       align-items: center;
-      padding: 70px 0 40px;
+
+      padding: 70px 0;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.08fr .92fr;
       align-items: center;
-      gap: 45px;
+      gap: 60px;
     }
 
-    .hero-text {
-      animation: fadeUp 1s ease;
+    .status {
+      width: fit-content;
+
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 7px 12px;
+      margin-bottom: 20px;
+
+      border: 1px solid #1e512b;
+      border-radius: 100px;
+
+      background: #09110b;
+
+      color: #7ee787;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .small-title {
-      color: #39d353;
-      font-weight: bold;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 12px rgba(57, 211, 83, 0.35);
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+      background: #39d353;
+
+      box-shadow: 0 0 14px #39d353;
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1.05;
-      margin-bottom: 18px;
+      font-size: clamp(48px, 7.5vw, 84px);
+      line-height: .98;
+      letter-spacing: -3px;
+
+      margin-bottom: 24px;
     }
 
     h1 span {
       color: #39d353;
-      text-shadow: 0 0 24px rgba(57, 211, 83, 0.25);
+
+      text-shadow:
+        0 0 25px rgba(57, 211, 83, .20);
     }
 
-    .hero p {
-      max-width: 620px;
-      color: #9da7a0;
+    .hero-text p {
+      max-width: 640px;
+
+      margin-bottom: 30px;
+
+      color: #98a39b;
       font-size: 18px;
-      margin-bottom: 28px;
     }
 
     .buttons {
@@ -132,599 +236,1469 @@
     }
 
     .button {
-      display: inline-block;
-      padding: 12px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding: 0 20px;
+
       border-radius: 10px;
-      font-weight: bold;
-      transition: 0.25s;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      transition: .25s;
     }
 
     .primary {
+      border: 1px solid #3ac353;
+
       background: #238636;
-      color: #fff;
-      border: 1px solid #2ea043;
-      box-shadow: 0 0 20px rgba(46, 160, 67, 0.22);
+      color: white;
+
+      box-shadow:
+        0 0 22px rgba(57, 211, 83, .18);
     }
 
     .primary:hover {
+      transform: translateY(-3px);
+
       background: #2ea043;
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(57, 211, 83, 0.4);
+
+      box-shadow:
+        0 12px 30px rgba(57, 211, 83, .22);
     }
 
     .secondary {
-      background: #0a110c;
-      border: 1px solid #245c31;
-      color: #d8f3dc;
+      border: 1px solid #294b31;
+
+      background: #0a100c;
+      color: #c8d2ca;
     }
 
     .secondary:hover {
+      transform: translateY(-3px);
+
       color: #39d353;
       border-color: #39d353;
-      transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(57, 211, 83, 0.18);
     }
 
-    .hero-art {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeUp 1.4s ease;
+
+    /* =========================
+       CHARACTER CARD
+    ========================== */
+
+    .character-card {
+      position: relative;
+
+      max-width: 450px;
+      margin-left: auto;
+
+      padding: 28px;
+
+      border: 1px solid #1c5229;
+      border-radius: 26px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17, 25, 19, .98),
+          rgba(5, 10, 7, .98)
+        );
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, .40),
+        0 0 50px rgba(57, 211, 83, .06);
+
+      overflow: hidden;
     }
 
-    .vector-box {
-      width: 100%;
-      max-width: 420px;
-      padding: 22px;
-      border-radius: 20px;
-      border: 1px solid #1f5c2c;
-      background: linear-gradient(
-        145deg,
-        rgba(13, 17, 16, 0.97),
-        rgba(7, 12, 8, 0.98)
-      );
-      box-shadow: 0 0 35px rgba(57, 211, 83, 0.08);
+    .character-card::before {
+      content: "";
+
+      position: absolute;
+      width: 180px;
+      height: 180px;
+
+      right: -70px;
+      top: -70px;
+
+      border-radius: 50%;
+
+      background: rgba(57, 211, 83, .09);
+      filter: blur(25px);
     }
 
-    .vector-box svg {
-      width: 100%;
-      height: auto;
+    .character-card svg {
       display: block;
+      width: 100%;
+      position: relative;
+      z-index: 2;
     }
 
-    .draw {
+    .line {
       fill: none;
       stroke: #39d353;
-      stroke-width: 4;
+      stroke-width: 3;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 1400;
-      stroke-dashoffset: 1400;
-      animation: drawLine 3.5s ease forwards;
     }
 
-    .float-hint {
-      margin-top: 14px;
-      text-align: center;
-      color: #7ee787;
-      font-size: 14px;
-      opacity: 0;
-      animation: showText 1s ease 2.7s forwards;
+    .line-muted {
+      fill: none;
+      stroke: #245b31;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
+
+    .green-fill {
+      fill: rgba(57, 211, 83, .10);
+      stroke: #39d353;
+      stroke-width: 2;
+    }
+
+    .dark-fill {
+      fill: #071009;
+      stroke: #39d353;
+      stroke-width: 2.5;
+    }
+
+    .hero-svg {
+      animation: floatCharacter 4s ease-in-out infinite;
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================== */
 
     section {
-      padding: 70px 0;
+      padding: 85px 0;
     }
 
     h2 {
-      font-size: 32px;
-      margin-bottom: 25px;
+      font-size: 34px;
+      margin-bottom: 28px;
     }
 
     h2::after {
       content: "";
+
       display: block;
-      width: 60px;
+
+      width: 55px;
       height: 3px;
+
       margin-top: 10px;
+
       border-radius: 10px;
+
       background: #39d353;
-      box-shadow: 0 0 12px rgba(57, 211, 83, 0.4);
+
+      box-shadow:
+        0 0 12px rgba(57, 211, 83, .35);
     }
 
     .about-text {
-      max-width: 760px;
-      color: #9da7a0;
+      max-width: 780px;
+
+      color: #929e95;
       font-size: 17px;
     }
 
-    .cards,
-    .tools-grid {
+
+    /* =========================
+       PROJECTS / TOOLS
+    ========================== */
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .card,
-    .tool-card,
-    .contact-box {
-      background: linear-gradient(
-        145deg,
-        rgba(13, 17, 16, 0.98),
-        rgba(7, 12, 8, 0.98)
-      );
-      border: 1px solid #1f5c2c;
-      border-radius: 16px;
-    }
+    .card {
+      position: relative;
 
-    .card,
-    .tool-card {
       padding: 25px;
-      transition: 0.25s;
+
+      border: 1px solid #173f22;
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(12, 18, 14, .98),
+          rgba(6, 10, 7, .98)
+        );
+
+      transition: .25s;
     }
 
-    .card:hover,
-    .tool-card:hover {
-      transform: translateY(-5px);
+    .card:hover {
+      transform: translateY(-6px);
+
       border-color: #39d353;
-      box-shadow: 0 0 25px rgba(57, 211, 83, 0.14);
+
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, .25),
+        0 0 25px rgba(57, 211, 83, .08);
     }
 
-    .card h3,
-    .tool-card h3 {
-      color: #39d353;
+    .card h3 {
       margin-bottom: 10px;
+
+      color: #e8f2eb;
     }
 
-    .card p,
-    .tool-card p {
-      color: #9da7a0;
-      margin-bottom: 18px;
+    .card p {
+      color: #8c998f;
+      font-size: 15px;
     }
 
-    .card a {
-      color: #7ee787;
-      font-weight: bold;
-    }
-
-    .card a:hover {
-      color: #39d353;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      font-size: 12px;
-      padding: 5px 10px;
-      border-radius: 20px;
-      background: #102416;
-      color: #7ee787;
-      border: 1px solid #1f5c2c;
-    }
-
-    .tool-icon {
+    .creative-icon {
       width: 58px;
       height: 58px;
-      border-radius: 14px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      margin-bottom: 18px;
+
+      border-radius: 13px;
+
       font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 14px;
-      border: 1px solid #1f5c2c;
+      font-weight: 900;
     }
 
-    .tool-icon.ai {
-      background: #221307;
+    .ai {
       color: #ff9a00;
+      background: #251405;
+      border: 1px solid #6c3e06;
     }
 
-    .tool-icon.ps {
-      background: #071521;
+    .ps {
       color: #31a8ff;
+      background: #061724;
+      border: 1px solid #0c466f;
     }
 
-    .tool-icon.dev {
-      background: #0d1a10;
+    .dev {
       color: #39d353;
+      background: #08170c;
+      border: 1px solid #1e5e2c;
     }
 
-    .contact-box {
-      padding: 30px;
-      box-shadow: 0 0 25px rgba(57, 211, 83, 0.05);
+    .design-details {
+      margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: #6f7e72;
+      font-size: 12px;
     }
 
-    .contact-box p {
-      color: #9da7a0;
-      margin-bottom: 20px;
+    .anchor {
+      width: 8px;
+      height: 8px;
+
+      border: 1px solid #39d353;
+      background: #071009;
+
+      transform: rotate(45deg);
     }
 
-    .contact-list {
+    .anchor-line {
+      flex: 1;
+      height: 1px;
+
+      background: linear-gradient(
+        90deg,
+        #39d353,
+        transparent
+      );
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-grid {
       display: grid;
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 15px;
     }
 
-    .contact-item {
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: #0a110c;
-      border: 1px solid #17351f;
-      color: #dce6df;
+    .contact-card {
+      min-height: 95px;
+
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      padding: 18px;
+
+      border: 1px solid #193e22;
+      border-radius: 14px;
+
+      background: #08100a;
+
+      transition: .25s;
     }
 
-    .contact-item span {
+    .contact-card:hover {
+      transform: translateY(-4px);
+
+      border-color: #39d353;
+
+      box-shadow:
+        0 0 24px rgba(57, 211, 83, .09);
+    }
+
+    .contact-icon {
+      min-width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 11px;
+
+      background: #102416;
       color: #39d353;
-      font-weight: bold;
-      display: inline-block;
-      min-width: 95px;
+
+      font-weight: 900;
+      font-size: 19px;
     }
+
+    .contact-info small {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color: #667268;
+    }
+
+    .contact-info strong {
+      color: #dbe4dd;
+      font-size: 14px;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
-      border-top: 1px solid #17351f;
-      text-align: center;
-      color: #7f8b82;
-      font-size: 14px;
       padding: 30px 0;
+
+      border-top: 1px solid #15331d;
+
+      color: #667268;
+      text-align: center;
+      font-size: 13px;
     }
 
     footer span {
       color: #39d353;
     }
 
-    ::selection {
-      background: #238636;
-      color: white;
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
+    .intro-draw {
+      fill: none;
+      stroke: #39d353;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 1500;
+
+      animation: drawIntro 2.2s ease forwards;
     }
 
-    @keyframes drawLine {
+    @keyframes drawIntro {
       to {
         stroke-dashoffset: 0;
       }
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
+    @keyframes introText {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    @keyframes showText {
-      to {
-        opacity: 1;
+    @keyframes floatCharacter {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
       }
     }
 
+
+    /* =========================
+       MOBILE
+    ========================== */
+
     @media (max-width: 900px) {
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
-        padding-top: 50px;
+      .character-card {
+        margin: auto;
       }
 
       .hero-art {
         order: -1;
       }
+
+      .hero {
+        padding-top: 40px;
+      }
     }
 
     @media (max-width: 600px) {
+
       .nav-links {
         display: none;
       }
 
-      section {
-        padding: 55px 0;
+      h1 {
+        letter-spacing: -2px;
       }
 
-      .card,
-      .tool-card,
-      .contact-box {
-        padding: 20px;
+      section {
+        padding: 60px 0;
+      }
+
+      .character-card {
+        padding: 15px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <nav>
-    <div class="container">
-      <a href="#" class="logo">Dani Geek</a>
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-      </div>
+<!-- ====================================================
+     INTRO
+===================================================== -->
+
+<div id="intro">
+
+  <div class="intro-content">
+
+    <svg
+      viewBox="0 0 500 430"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <!-- Bucket Hat -->
+      <path
+        class="intro-draw"
+        d="M175 100 Q250 47 325 100"
+      />
+
+      <path
+        class="intro-draw"
+        d="M155 108 Q250 82 345 108"
+      />
+
+      <!-- Head -->
+      <path
+        class="intro-draw"
+        d="
+          M192 119
+          Q182 160 195 187
+          Q215 215 250 216
+          Q285 215 305 187
+          Q318 160 308 119
+        "
+      />
+
+      <!-- Hair -->
+      <path
+        class="intro-draw"
+        d="
+          M193 131
+          Q210 106 230 122
+          Q249 104 271 124
+          Q291 109 308 133
+        "
+      />
+
+      <!-- Eyes -->
+      <path class="intro-draw" d="M218 159 Q226 154 234 159" />
+      <path class="intro-draw" d="M266 159 Q274 154 282 159" />
+
+      <!-- Nose -->
+      <path class="intro-draw" d="M250 160 L246 177 L255 177" />
+
+      <!-- Smile -->
+      <path class="intro-draw" d="M230 190 Q250 201 270 190" />
+
+      <!-- Neck -->
+      <path class="intro-draw" d="M226 213 L223 239" />
+      <path class="intro-draw" d="M274 213 L277 239" />
+
+      <!-- Hoodie -->
+      <path
+        class="intro-draw"
+        d="
+          M222 235
+          Q180 242 158 283
+          L145 370
+        "
+      />
+
+      <path
+        class="intro-draw"
+        d="
+          M278 235
+          Q320 242 342 283
+          L355 370
+        "
+      />
+
+      <path
+        class="intro-draw"
+        d="
+          M216 238
+          Q250 270 284 238
+        "
+      />
+
+      <!-- Hoodie strings -->
+      <path class="intro-draw" d="M237 261 L231 300" />
+      <path class="intro-draw" d="M263 261 L269 300" />
+
+      <!-- Pen Tool -->
+      <circle
+        class="intro-draw"
+        cx="115"
+        cy="280"
+        r="6"
+      />
+
+      <circle
+        class="intro-draw"
+        cx="95"
+        cy="337"
+        r="6"
+      />
+
+      <path
+        class="intro-draw"
+        d="M115 280 Q77 287 95 337"
+      />
+
+      <path
+        class="intro-draw"
+        d="M106 295 L87 324"
+      />
+
+      <!-- Code Symbol -->
+      <path
+        class="intro-draw"
+        d="M384 288 L365 305 L384 322"
+      />
+
+      <path
+        class="intro-draw"
+        d="M414 288 L433 305 L414 322"
+      />
+
+      <path
+        class="intro-draw"
+        d="M406 278 L392 331"
+      />
+
+      <!-- Ground -->
+      <path
+        class="intro-draw"
+        d="M145 370 L355 370"
+      />
+
+    </svg>
+
+
+    <div class="intro-name">
+      Dani Geek
     </div>
-  </nav>
 
-  <main>
+    <div class="intro-sub">
+      Developer × Designer
+    </div>
 
-    <section class="hero">
-      <div class="container hero-grid">
+  </div>
 
-        <div class="hero-text">
-          <div class="small-title">
-            Welcome to my world 👋
-          </div>
+</div>
 
-          <h1>
-            Hi, I’m <span>Dani Geek</span>
-          </h1>
 
-          <p>
-            I’m learning web development, design, Linux and creative tools.
-            I like building cool things, exploring technology, and improving
-            my skills as a developer and designer.
-          </p>
 
-          <div class="buttons">
-            <a
-              href="https://github.com/danipv02124-design"
-              target="_blank"
-              class="button primary"
-            >
-              View my GitHub
-            </a>
+<!-- ====================================================
+     NAV
+===================================================== -->
 
-            <a
-              href="#contact"
-              class="button secondary"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
+<nav>
 
-        <div class="hero-art">
-          <div class="vector-box">
+  <div class="container">
 
-            <svg
-              viewBox="0 0 400 400"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-label="Dani Geek line character"
-            >
+    <a href="#" class="logo">
+      Dani<span>Geek</span>
+    </a>
 
-              <!-- Round Hat -->
-              <path class="draw" d="M135 85 Q200 38 265 85" />
-              <path class="draw" d="M118 92 Q200 68 282 92" />
 
-              <!-- Head -->
-              <circle class="draw" cx="200" cy="133" r="38" />
+    <div class="nav-links">
 
-              <!-- Eyes -->
-              <path class="draw" d="M185 126 L185 126" />
-              <path class="draw" d="M215 126 L215 126" />
+      <a href="#about">
+        About
+      </a>
 
-              <!-- Smile -->
-              <path class="draw" d="M187 146 Q200 157 213 146" />
+      <a href="#projects">
+        Projects
+      </a>
 
-              <!-- Neck -->
-              <path class="draw" d="M200 171 L200 187" />
+      <a href="#tools">
+        Tools
+      </a>
 
-              <!-- Body -->
-              <path class="draw" d="M155 205 Q200 183 245 205" />
-              <path class="draw" d="M165 205 L175 270" />
-              <path class="draw" d="M235 205 L225 270" />
-              <path class="draw" d="M175 270 L225 270" />
+      <a href="#contact">
+        Contact
+      </a>
 
-              <!-- Arms -->
-              <path class="draw" d="M157 210 L120 255" />
-              <path class="draw" d="M243 210 L280 255" />
+    </div>
 
-              <!-- Legs -->
-              <path class="draw" d="M185 270 L165 330" />
-              <path class="draw" d="M215 270 L235 330" />
+  </div>
 
-              <!-- Shoes -->
-              <path class="draw" d="M165 330 L145 330" />
-              <path class="draw" d="M235 330 L255 330" />
+</nav>
 
-              <!-- Left Design Tablet -->
-              <path class="draw" d="M78 245 L135 245 L130 290 L73 290 Z" />
-              <path class="draw" d="M90 257 L118 278" />
 
-              <!-- Right Laptop -->
-              <path class="draw" d="M265 245 L322 245 L327 290 L270 290 Z" />
-              <path class="draw" d="M282 266 L312 266" />
 
-              <!-- Ground -->
-              <path class="draw" d="M110 345 L290 345" />
+<main>
 
-            </svg>
 
-            <div class="float-hint">
-              Developer + Designer Mode 😎
-            </div>
+<!-- ====================================================
+     HERO
+===================================================== -->
 
-          </div>
+<section class="hero">
+
+  <div class="container hero-grid">
+
+
+    <div class="hero-text">
+
+      <div class="status">
+
+        <div class="status-dot"></div>
+
+        learning • designing • building
+
+      </div>
+
+
+      <h1>
+
+        Hi, I'm
+        <br>
+
+        <span>Dani Geek.</span>
+
+      </h1>
+
+
+      <p>
+
+        Developer in progress, visual design lover and full-time geek.
+
+        I enjoy mixing code, graphics, Linux and creative tools to build
+        things that look good and actually work.
+
+      </p>
+
+
+      <div class="buttons">
+
+        <a
+          href="https://github.com/danipv02124-design"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button primary"
+        >
+          View GitHub
+        </a>
+
+
+        <a
+          href="#contact"
+          class="button secondary"
+        >
+          Let's Talk
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="hero-art">
+
+      <div class="character-card">
+
+        <svg
+          class="hero-svg"
+          viewBox="0 0 500 500"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+
+          <!-- background elements -->
+
+          <circle
+            class="line-muted"
+            cx="420"
+            cy="85"
+            r="35"
+          />
+
+          <path
+            class="line-muted"
+            d="M375 80 L465 80"
+          />
+
+          <path
+            class="line-muted"
+            d="M420 40 L420 125"
+          />
+
+
+          <!-- illustrator style bezier -->
+
+          <circle
+            class="green-fill"
+            cx="78"
+            cy="130"
+            r="5"
+          />
+
+          <circle
+            class="green-fill"
+            cx="115"
+            cy="93"
+            r="5"
+          />
+
+          <path
+            class="line-muted"
+            d="M78 130 Q75 92 115 93"
+          />
+
+
+          <!-- bucket hat -->
+
+          <path
+            class="dark-fill"
+            d="
+              M175 120
+              Q250 62 325 120
+              Q305 91 195 91
+              Q184 101 175 120
+            "
+          />
+
+          <path
+            class="dark-fill"
+            d="
+              M154 121
+              Q250 96 346 121
+              Q329 139 250 142
+              Q171 139 154 121
+            "
+          />
+
+
+          <!-- face -->
+
+          <path
+            class="dark-fill"
+            d="
+              M191 137
+              Q181 186 200 218
+              Q220 243 250 244
+              Q280 243 300 218
+              Q319 186 309 137
+            "
+          />
+
+
+          <!-- hair -->
+
+          <path
+            class="line"
+            d="
+              M191 151
+              Q205 127 226 143
+              Q246 125 265 143
+              Q285 128 308 154
+            "
+          />
+
+
+          <!-- eyes -->
+
+          <path
+            class="line"
+            d="M214 178 Q225 170 236 178"
+          />
+
+          <path
+            class="line"
+            d="M264 178 Q275 170 286 178"
+          />
+
+
+          <!-- glasses -->
+
+          <rect
+            class="line"
+            x="203"
+            y="163"
+            width="41"
+            height="31"
+            rx="8"
+          />
+
+          <rect
+            class="line"
+            x="256"
+            y="163"
+            width="41"
+            height="31"
+            rx="8"
+          />
+
+          <path
+            class="line"
+            d="M244 174 L256 174"
+          />
+
+
+          <!-- nose -->
+
+          <path
+            class="line-muted"
+            d="M250 180 L245 199 L254 200"
+          />
+
+
+          <!-- smile -->
+
+          <path
+            class="line"
+            d="M228 214 Q250 225 272 214"
+          />
+
+
+          <!-- neck -->
+
+          <path
+            class="line"
+            d="M224 240 L220 270"
+          />
+
+          <path
+            class="line"
+            d="M276 240 L280 270"
+          />
+
+
+          <!-- hoodie -->
+
+          <path
+            class="dark-fill"
+            d="
+              M217 263
+              Q171 270 145 316
+              L126 438
+              L374 438
+              L355 316
+              Q329 270 283 263
+
+              Q250 300 217 263
+              Z
+            "
+          />
+
+
+          <!-- hood -->
+
+          <path
+            class="line"
+            d="
+              M215 266
+              Q250 305 285 266
+            "
+          />
+
+
+          <!-- strings -->
+
+          <path
+            class="line"
+            d="M236 292 L229 349"
+          />
+
+          <circle
+            class="green-fill"
+            cx="228"
+            cy="354"
+            r="4"
+          />
+
+          <path
+            class="line"
+            d="M264 292 L271 349"
+          />
+
+          <circle
+            class="green-fill"
+            cx="272"
+            cy="354"
+            r="4"
+          />
+
+
+          <!-- tablet -->
+
+          <rect
+            class="dark-fill"
+            x="175"
+            y="344"
+            width="150"
+            height="92"
+            rx="10"
+          />
+
+          <path
+            class="line-muted"
+            d="M190 360 L310 360"
+          />
+
+
+          <!-- pen tool on tablet -->
+
+          <circle
+            class="green-fill"
+            cx="212"
+            cy="393"
+            r="5"
+          />
+
+          <circle
+            class="green-fill"
+            cx="286"
+            cy="382"
+            r="5"
+          />
+
+          <path
+            class="line"
+            d="M212 393 Q242 353 286 382"
+          />
+
+          <path
+            class="line-muted"
+            d="M212 393 L195 411"
+          />
+
+          <path
+            class="line-muted"
+            d="M286 382 L305 399"
+          />
+
+
+          <!-- Illustrator badge -->
+
+          <rect
+            class="dark-fill"
+            x="72"
+            y="302"
+            width="52"
+            height="52"
+            rx="10"
+          />
+
+          <text
+            x="98"
+            y="337"
+            fill="#39d353"
+            text-anchor="middle"
+            font-size="22"
+            font-weight="bold"
+          >
+            Ai
+          </text>
+
+
+          <!-- Photoshop badge -->
+
+          <rect
+            class="dark-fill"
+            x="378"
+            y="302"
+            width="52"
+            height="52"
+            rx="10"
+          />
+
+          <text
+            x="404"
+            y="337"
+            fill="#39d353"
+            text-anchor="middle"
+            font-size="22"
+            font-weight="bold"
+          >
+            Ps
+          </text>
+
+
+          <!-- code marks -->
+
+          <path
+            class="line"
+            d="M93 386 L76 401 L93 416"
+          />
+
+          <path
+            class="line"
+            d="M407 386 L424 401 L407 416"
+          />
+
+
+          <!-- ground -->
+
+          <path
+            class="line-muted"
+            d="M100 455 L400 455"
+          />
+
+
+        </svg>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+  <div class="container">
+
+    <h2>
+      About Me
+    </h2>
+
+
+    <p class="about-text">
+
+      I'm interested in software development, graphic design,
+      Linux, networking, GitHub and creative technology.
+
+      This portfolio is where I share what I'm learning and the
+      projects I build while becoming a stronger developer and designer.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+  <div class="container">
+
+    <h2>
+      Projects
+    </h2>
+
+
+    <div class="grid">
+
+
+      <div class="card">
+
+        <h3>
+          Dani Geek Portfolio
+        </h3>
+
+        <p>
+
+          My personal portfolio built using HTML and CSS and
+          deployed with GitHub Pages.
+
+        </p>
+
+
+        <div class="design-details">
+
+          HTML
+
+          <div class="anchor"></div>
+
+          <div class="anchor-line"></div>
+
+          CSS
+
+          <div class="anchor"></div>
+
+          GitHub
+
         </div>
 
       </div>
-    </section>
 
-    <section id="about">
-      <div class="container">
 
-        <h2>About Me</h2>
 
-        <p class="about-text">
-          I’m interested in software development, design, web technologies,
-          Linux, GitHub, networking, and creative digital tools.
-          This website is my personal space where I share my progress,
-          experiments, projects, and the things I learn while becoming
-          a better developer and designer.
+      <div class="card">
+
+        <h3>
+          Creative Experiments
+        </h3>
+
+        <p>
+
+          Experiments with web interfaces, vector design,
+          Linux and different developer technologies.
+
+        </p>
+
+
+        <div class="design-details">
+
+          Design
+
+          <div class="anchor"></div>
+
+          <div class="anchor-line"></div>
+
+          Development
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ====================================================
+     TOOLS
+===================================================== -->
+
+<section id="tools">
+
+  <div class="container">
+
+    <h2>
+      Creative Tools
+    </h2>
+
+
+    <div class="grid">
+
+
+      <div class="card">
+
+        <div class="creative-icon ai">
+          Ai
+        </div>
+
+        <h3>
+          Adobe Illustrator
+        </h3>
+
+        <p>
+
+          Vector graphics, logo experiments, icons,
+          shapes and creative visual ideas.
+
         </p>
 
       </div>
-    </section>
 
-    <section id="projects">
-      <div class="container">
 
-        <h2>Projects</h2>
 
-        <div class="cards">
+      <div class="card">
 
-          <div class="card">
-            <h3>Dandan Website</h3>
-
-            <p>
-              My personal developer and designer portfolio built with
-              HTML and CSS and deployed using GitHub Pages.
-            </p>
-
-            <div class="tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-
-            <br />
-
-            <a
-              href="https://github.com/danipv02124-design/dandan"
-              target="_blank"
-            >
-              View repository →
-            </a>
-          </div>
-
-          <div class="card">
-            <h3>Learning & Experiments</h3>
-
-            <p>
-              I’m learning software development, visual design, Linux,
-              networking, web technologies and creative tools.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Linux</span>
-              <span class="tag">Git</span>
-              <span class="tag">Design</span>
-              <span class="tag">Web</span>
-              <span class="tag">Networking</span>
-            </div>
-          </div>
-
+        <div class="creative-icon ps">
+          Ps
         </div>
 
+        <h3>
+          Adobe Photoshop
+        </h3>
+
+        <p>
+
+          Photo editing, compositions, graphics
+          and visual experiments.
+
+        </p>
+
       </div>
-    </section>
 
-    <section id="tools">
-      <div class="container">
 
-        <h2>Tools I Like</h2>
 
-        <div class="tools-grid">
+      <div class="card">
 
-          <div class="tool-card">
-            <div class="tool-icon ai">
-              Ai
-            </div>
-
-            <h3>Adobe Illustrator</h3>
-
-            <p>
-              I like using Illustrator for vector artwork,
-              logos, shapes, icons and learning clean graphic design.
-            </p>
-          </div>
-
-          <div class="tool-card">
-            <div class="tool-icon ps">
-              Ps
-            </div>
-
-            <h3>Adobe Photoshop</h3>
-
-            <p>
-              I use Photoshop to explore image editing,
-              graphics, visual effects and creative compositions.
-            </p>
-          </div>
-
-          <div class="tool-card">
-            <div class="tool-icon dev">
-              &lt;/&gt;
-            </div>
-
-            <h3>Web Development</h3>
-
-            <p>
-              I’m learning how to build websites and projects using
-              HTML, CSS, GitHub and more technologies over time.
-            </p>
-          </div>
-
+        <div class="creative-icon dev">
+          &lt;/&gt;
         </div>
 
-      </div>
-    </section>
+        <h3>
+          Development
+        </h3>
 
-    <section id="contact">
-      <div class="container">
+        <p>
 
-        <h2>Contact</h2>
+          HTML, CSS, GitHub, Linux and more
+          technologies as I keep learning.
 
-        <div class="contact-box">
-
-          <p>
-            If you want to contact me, you can use one of the options below.
-          </p>
-
-          <div class="contact-list">
-
-            <div class="contact-item">
-              <span>Telegram:</span>
-              https://t.me/Dani_yousefi25
-            </div>
-
-            <div class="contact-item">
-              <span>Phone:</span>
-              +90555668458
-            </div>
-
-            <div class="contact-item">
-              <span>Email:</span>
-              dani.pv02124@gmail.com
-            </div>
-
-            <div class="contact-item">
-              <span>GitHub:</span>
-              github.com/danipv02124-design
-            </div>
-
-          </div>
-
-        </div>
+        </p>
 
       </div>
-    </section>
 
-  </main>
 
-  <footer>
-    <div class="container">
-      © 2026 <span>Dani Geek</span> — Developer & Designer.
     </div>
-  </footer>
+
+  </div>
+
+</section>
+
+
+
+<!-- ====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <h2>
+      Contact Me
+    </h2>
+
+
+    <div class="contact-grid">
+
+
+      <!-- TELEGRAM -->
+
+      <a
+        class="contact-card"
+        href="https://t.me/Dani_yousefi25"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="contact-icon">
+          TG
+        </div>
+
+        <div class="contact-info">
+
+          <small>
+            Telegram
+          </small>
+
+          <strong>
+            @Dani_yousefi25
+          </strong>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- PHONE -->
+
+      <a
+        class="contact-card"
+        href="tel:+54683125"
+      >
+
+        <div class="contact-icon">
+          ☎
+        </div>
+
+        <div class="contact-info">
+
+          <small>
+            Phone
+          </small>
+
+          <strong>
+            +90 965993468
+          </strong>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- EMAIL -->
+
+      <a
+        class="contact-card"
+        href="mailto:dani.pv02124@gmail.com"
+      >
+
+        <div class="contact-icon">
+          @
+        </div>
+
+        <div class="contact-info">
+
+          <small>
+            Email
+          </small>
+
+          <strong>
+            dani.pv02124@gmail.com
+          </strong>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- GITHUB -->
+
+      <a
+        class="contact-card"
+        href="https://github.com/danipv02124-design"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="contact-icon">
+          GH
+        </div>
+
+        <div class="contact-info">
+
+          <small>
+            GitHub
+          </small>
+
+          <strong>
+            danipv02124-design
+          </strong>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+  <div class="container">
+
+    © 2026
+    <span>Dani Geek</span>
+
+    — Developer × Designer
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+  /*
+    Intro screen stays visible for about 3.2 seconds
+    and then smoothly disappears.
+  */
+
+  window.addEventListener("load", function () {
+
+    setTimeout(function () {
+
+      document
+        .getElementById("intro")
+        .classList
+        .add("hide");
+
+    }, 3200);
+
+  });
+
+</script>
+
 
 </body>
 </html>
