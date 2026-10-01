@@ -1,16 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Dandan | Developer</title>
+  <title>Dani Geek | Developer & Designer</title>
 
   <meta
     name="description"
-    content="Personal developer website and projects by danipv02124-design."
-  >
+    content="Personal developer and designer portfolio of Dani Geek."
+  />
 
   <style>
     * {
@@ -26,36 +25,36 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(57, 211, 83, 0.08), transparent 35%),
+        radial-gradient(circle at top, rgba(57, 211, 83, 0.08), transparent 32%),
         #050806;
       color: #e6edf3;
       line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     .container {
-      width: min(1000px, 90%);
+      width: min(1100px, 90%);
       margin: auto;
     }
 
     nav {
-      border-bottom: 1px solid #17351f;
-      padding: 20px 0;
-      background: rgba(5, 8, 6, 0.88);
-      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      padding: 18px 0;
+      background: rgba(5, 8, 6, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #17351f;
     }
 
     nav .container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
     }
 
@@ -63,14 +62,14 @@
       font-size: 22px;
       font-weight: bold;
       color: #39d353;
-      text-shadow: 0 0 15px rgba(57, 211, 83, 0.45);
+      text-shadow: 0 0 14px rgba(57, 211, 83, 0.4);
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
+      color: #9aa39c;
       font-size: 14px;
-      color: #9da7a0;
     }
 
     .nav-links a {
@@ -79,44 +78,51 @@
 
     .nav-links a:hover {
       color: #39d353;
-      text-shadow: 0 0 10px rgba(57, 211, 83, 0.4);
+      text-shadow: 0 0 10px rgba(57, 211, 83, 0.35);
     }
 
     .hero {
-      min-height: 78vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
-      padding: 80px 0;
+      padding: 70px 0 40px;
     }
 
-    .hero-content {
-      max-width: 730px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .hero-text {
+      animation: fadeUp 1s ease;
     }
 
     .small-title {
       color: #39d353;
-      margin-bottom: 15px;
       font-weight: bold;
+      margin-bottom: 16px;
       letter-spacing: 0.5px;
-      text-shadow: 0 0 15px rgba(57, 211, 83, 0.35);
+      text-shadow: 0 0 12px rgba(57, 211, 83, 0.35);
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 78px);
+      font-size: clamp(42px, 8vw, 76px);
       line-height: 1.05;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 span {
       color: #39d353;
-      text-shadow: 0 0 25px rgba(57, 211, 83, 0.25);
+      text-shadow: 0 0 24px rgba(57, 211, 83, 0.25);
     }
 
     .hero p {
-      color: #9da7a0;
       max-width: 620px;
+      color: #9da7a0;
       font-size: 18px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .buttons {
@@ -128,35 +134,82 @@
     .button {
       display: inline-block;
       padding: 12px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       transition: 0.25s;
     }
 
     .primary {
       background: #238636;
-      color: white;
+      color: #fff;
       border: 1px solid #2ea043;
-      box-shadow: 0 0 18px rgba(46, 160, 67, 0.2);
+      box-shadow: 0 0 20px rgba(46, 160, 67, 0.22);
     }
 
     .primary:hover {
       background: #2ea043;
       transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(57, 211, 83, 0.4);
+      box-shadow: 0 0 30px rgba(57, 211, 83, 0.4);
     }
 
     .secondary {
-      border: 1px solid #245c31;
       background: #0a110c;
+      border: 1px solid #245c31;
       color: #d8f3dc;
     }
 
     .secondary:hover {
-      border-color: #39d353;
       color: #39d353;
+      border-color: #39d353;
       transform: translateY(-2px);
       box-shadow: 0 0 20px rgba(57, 211, 83, 0.18);
+    }
+
+    .hero-art {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 1.4s ease;
+    }
+
+    .vector-box {
+      width: 100%;
+      max-width: 420px;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid #1f5c2c;
+      background: linear-gradient(
+        145deg,
+        rgba(13, 17, 16, 0.97),
+        rgba(7, 12, 8, 0.98)
+      );
+      box-shadow: 0 0 35px rgba(57, 211, 83, 0.08);
+    }
+
+    .vector-box svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .draw {
+      fill: none;
+      stroke: #39d353;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: drawLine 3.5s ease forwards;
+    }
+
+    .float-hint {
+      margin-top: 14px;
+      text-align: center;
+      color: #7ee787;
+      font-size: 14px;
+      opacity: 0;
+      animation: showText 1s ease 2.7s forwards;
     }
 
     section {
@@ -173,50 +226,60 @@
       display: block;
       width: 60px;
       height: 3px;
-      background: #39d353;
       margin-top: 10px;
       border-radius: 10px;
+      background: #39d353;
       box-shadow: 0 0 12px rgba(57, 211, 83, 0.4);
     }
 
     .about-text {
-      max-width: 750px;
+      max-width: 760px;
       color: #9da7a0;
       font-size: 17px;
     }
 
-    .cards {
+    .cards,
+    .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
-    .card {
+    .card,
+    .tool-card,
+    .contact-box {
       background: linear-gradient(
         145deg,
         rgba(13, 17, 16, 0.98),
         rgba(7, 12, 8, 0.98)
       );
       border: 1px solid #1f5c2c;
-      border-radius: 14px;
+      border-radius: 16px;
+    }
+
+    .card,
+    .tool-card {
       padding: 25px;
       transition: 0.25s;
     }
 
-    .card:hover {
+    .card:hover,
+    .tool-card:hover {
       transform: translateY(-5px);
       border-color: #39d353;
       box-shadow: 0 0 25px rgba(57, 211, 83, 0.14);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
+    .card h3,
+    .tool-card h3 {
       color: #39d353;
+      margin-bottom: 10px;
     }
 
-    .card p {
+    .card p,
+    .tool-card p {
       color: #9da7a0;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .card a {
@@ -239,18 +302,39 @@
       padding: 5px 10px;
       border-radius: 20px;
       background: #102416;
-      border: 1px solid #1f5c2c;
       color: #7ee787;
+      border: 1px solid #1f5c2c;
+    }
+
+    .tool-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      border: 1px solid #1f5c2c;
+    }
+
+    .tool-icon.ai {
+      background: #221307;
+      color: #ff9a00;
+    }
+
+    .tool-icon.ps {
+      background: #071521;
+      color: #31a8ff;
+    }
+
+    .tool-icon.dev {
+      background: #0d1a10;
+      color: #39d353;
     }
 
     .contact-box {
-      background: linear-gradient(
-        145deg,
-        rgba(13, 17, 16, 0.98),
-        rgba(7, 12, 8, 0.98)
-      );
-      border: 1px solid #1f5c2c;
-      border-radius: 14px;
       padding: 30px;
       box-shadow: 0 0 25px rgba(57, 211, 83, 0.05);
     }
@@ -260,12 +344,32 @@
       margin-bottom: 20px;
     }
 
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #0a110c;
+      border: 1px solid #17351f;
+      color: #dce6df;
+    }
+
+    .contact-item span {
+      color: #39d353;
+      font-weight: bold;
+      display: inline-block;
+      min-width: 95px;
+    }
+
     footer {
       border-top: 1px solid #17351f;
-      color: #7f8b82;
       text-align: center;
-      padding: 30px 0;
+      color: #7f8b82;
       font-size: 14px;
+      padding: 30px 0;
     }
 
     footer span {
@@ -277,23 +381,58 @@
       color: white;
     }
 
-    @media (max-width: 600px) {
-      .nav-links {
-        display: none;
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes showText {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero {
-        min-height: 68vh;
-        padding: 60px 0;
+        min-height: auto;
+        padding-top: 50px;
+      }
+
+      .hero-art {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
       }
 
       section {
         padding: 55px 0;
       }
 
-      .contact-box,
-      .card {
-        padding: 22px;
+      .card,
+      .tool-card,
+      .contact-box {
+        padding: 20px;
       }
     }
   </style>
@@ -303,35 +442,35 @@
 
   <nav>
     <div class="container">
-      <a href="#" class="logo">Dandan</a>
+      <a href="#" class="logo">Dani Geek</a>
 
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#tools">Tools</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-
   <main>
 
     <section class="hero">
-      <div class="container">
-        <div class="hero-content">
+      <div class="container hero-grid">
 
+        <div class="hero-text">
           <div class="small-title">
-            Hello, I'm a developer 👋
+            Welcome to my world 👋
           </div>
 
           <h1>
-            Building and learning <span>on the web.</span>
+            Hi, I’m <span>Dani Geek</span>
           </h1>
 
           <p>
-            This is my personal developer website where I share my
-            programming experiments, web projects, and things I learn
-            while working with software and open-source technologies.
+            I’m learning web development, design, Linux and creative tools.
+            I like building cool things, exploring technology, and improving
+            my skills as a developer and designer.
           </p>
 
           <div class="buttons">
@@ -344,17 +483,80 @@
             </a>
 
             <a
-              href="#projects"
+              href="#contact"
               class="button secondary"
             >
-              My Projects
+              Contact Me
             </a>
           </div>
-
         </div>
+
+        <div class="hero-art">
+          <div class="vector-box">
+
+            <svg
+              viewBox="0 0 400 400"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Dani Geek line character"
+            >
+
+              <!-- Round Hat -->
+              <path class="draw" d="M135 85 Q200 38 265 85" />
+              <path class="draw" d="M118 92 Q200 68 282 92" />
+
+              <!-- Head -->
+              <circle class="draw" cx="200" cy="133" r="38" />
+
+              <!-- Eyes -->
+              <path class="draw" d="M185 126 L185 126" />
+              <path class="draw" d="M215 126 L215 126" />
+
+              <!-- Smile -->
+              <path class="draw" d="M187 146 Q200 157 213 146" />
+
+              <!-- Neck -->
+              <path class="draw" d="M200 171 L200 187" />
+
+              <!-- Body -->
+              <path class="draw" d="M155 205 Q200 183 245 205" />
+              <path class="draw" d="M165 205 L175 270" />
+              <path class="draw" d="M235 205 L225 270" />
+              <path class="draw" d="M175 270 L225 270" />
+
+              <!-- Arms -->
+              <path class="draw" d="M157 210 L120 255" />
+              <path class="draw" d="M243 210 L280 255" />
+
+              <!-- Legs -->
+              <path class="draw" d="M185 270 L165 330" />
+              <path class="draw" d="M215 270 L235 330" />
+
+              <!-- Shoes -->
+              <path class="draw" d="M165 330 L145 330" />
+              <path class="draw" d="M235 330 L255 330" />
+
+              <!-- Left Design Tablet -->
+              <path class="draw" d="M78 245 L135 245 L130 290 L73 290 Z" />
+              <path class="draw" d="M90 257 L118 278" />
+
+              <!-- Right Laptop -->
+              <path class="draw" d="M265 245 L322 245 L327 290 L270 290 Z" />
+              <path class="draw" d="M282 266 L312 266" />
+
+              <!-- Ground -->
+              <path class="draw" d="M110 345 L290 345" />
+
+            </svg>
+
+            <div class="float-hint">
+              Developer + Designer Mode 😎
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
-
 
     <section id="about">
       <div class="container">
@@ -362,16 +564,15 @@
         <h2>About Me</h2>
 
         <p class="about-text">
-          I'm interested in software development, web technologies,
-          Linux, GitHub, and learning how internet services work.
-          I'm currently experimenting with web development and deploying
-          projects using GitHub Pages while continuing to learn and build
-          new projects.
+          I’m interested in software development, design, web technologies,
+          Linux, GitHub, networking, and creative digital tools.
+          This website is my personal space where I share my progress,
+          experiments, projects, and the things I learn while becoming
+          a better developer and designer.
         </p>
 
       </div>
     </section>
-
 
     <section id="projects">
       <div class="container">
@@ -384,9 +585,8 @@
             <h3>Dandan Website</h3>
 
             <p>
-              My personal website built with HTML and CSS and deployed
-              using GitHub Pages. I use this project to experiment with
-              web development and deployment.
+              My personal developer and designer portfolio built with
+              HTML and CSS and deployed using GitHub Pages.
             </p>
 
             <div class="tags">
@@ -395,7 +595,7 @@
               <span class="tag">GitHub Pages</span>
             </div>
 
-            <br>
+            <br />
 
             <a
               href="https://github.com/danipv02124-design/dandan"
@@ -405,28 +605,78 @@
             </a>
           </div>
 
-
           <div class="card">
             <h3>Learning & Experiments</h3>
 
             <p>
-              I'm continuing to learn and experiment with software,
-              Linux, Git, networking, and modern web technologies.
-              New projects will be added here as I build them.
+              I’m learning software development, visual design, Linux,
+              networking, web technologies and creative tools.
             </p>
 
             <div class="tags">
               <span class="tag">Linux</span>
               <span class="tag">Git</span>
+              <span class="tag">Design</span>
               <span class="tag">Web</span>
               <span class="tag">Networking</span>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
 
+    <section id="tools">
+      <div class="container">
+
+        <h2>Tools I Like</h2>
+
+        <div class="tools-grid">
+
+          <div class="tool-card">
+            <div class="tool-icon ai">
+              Ai
+            </div>
+
+            <h3>Adobe Illustrator</h3>
+
+            <p>
+              I like using Illustrator for vector artwork,
+              logos, shapes, icons and learning clean graphic design.
+            </p>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-icon ps">
+              Ps
+            </div>
+
+            <h3>Adobe Photoshop</h3>
+
+            <p>
+              I use Photoshop to explore image editing,
+              graphics, visual effects and creative compositions.
+            </p>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-icon dev">
+              &lt;/&gt;
+            </div>
+
+            <h3>Web Development</h3>
+
+            <p>
+              I’m learning how to build websites and projects using
+              HTML, CSS, GitHub and more technologies over time.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
     <section id="contact">
       <div class="container">
@@ -434,18 +684,35 @@
         <h2>Contact</h2>
 
         <div class="contact-box">
+
           <p>
-            The easiest way to find my work or contact me is through
-            my GitHub profile.
+            If you want to contact me, you can use one of the options below.
           </p>
 
-          <a
-            href="https://github.com/danipv02124-design"
-            target="_blank"
-            class="button primary"
-          >
-            GitHub Profile
-          </a>
+          <div class="contact-list">
+
+            <div class="contact-item">
+              <span>Telegram:</span>
+              https://t.me/Dani_yousefi25
+            </div>
+
+            <div class="contact-item">
+              <span>Phone:</span>
+              +90555668458
+            </div>
+
+            <div class="contact-item">
+              <span>Email:</span>
+              dani.pv02124@gmail.com
+            </div>
+
+            <div class="contact-item">
+              <span>GitHub:</span>
+              github.com/danipv02124-design
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -453,13 +720,11 @@
 
   </main>
 
-
   <footer>
     <div class="container">
-      © 2026 <span>Dandan</span> — Built with HTML, CSS and GitHub Pages.
+      © 2026 <span>Dani Geek</span> — Developer & Designer.
     </div>
   </footer>
 
 </body>
 </html>
-```
