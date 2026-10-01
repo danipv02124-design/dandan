@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #0d1117;
+      background:
+        radial-gradient(circle at top, rgba(57, 211, 83, 0.08), transparent 35%),
+        #050806;
       color: #e6edf3;
       line-height: 1.6;
     }
@@ -40,8 +43,13 @@
     }
 
     nav {
-      border-bottom: 1px solid #30363d;
+      border-bottom: 1px solid #17351f;
       padding: 20px 0;
+      background: rgba(5, 8, 6, 0.88);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav .container {
@@ -54,34 +62,43 @@
     .logo {
       font-size: 22px;
       font-weight: bold;
+      color: #39d353;
+      text-shadow: 0 0 15px rgba(57, 211, 83, 0.45);
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
       font-size: 14px;
-      color: #8b949e;
+      color: #9da7a0;
+    }
+
+    .nav-links a {
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #39d353;
+      text-shadow: 0 0 10px rgba(57, 211, 83, 0.4);
     }
 
     .hero {
-      min-height: 70vh;
+      min-height: 78vh;
       display: flex;
       align-items: center;
       padding: 80px 0;
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 730px;
     }
 
     .small-title {
-      color: #58a6ff;
+      color: #39d353;
       margin-bottom: 15px;
       font-weight: bold;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 15px rgba(57, 211, 83, 0.35);
     }
 
     h1 {
@@ -90,8 +107,13 @@
       margin-bottom: 20px;
     }
 
+    h1 span {
+      color: #39d353;
+      text-shadow: 0 0 25px rgba(57, 211, 83, 0.25);
+    }
+
     .hero p {
-      color: #8b949e;
+      color: #9da7a0;
       max-width: 620px;
       font-size: 18px;
       margin-bottom: 30px;
@@ -108,25 +130,33 @@
       padding: 12px 20px;
       border-radius: 8px;
       font-weight: bold;
-      transition: 0.2s;
+      transition: 0.25s;
     }
 
     .primary {
       background: #238636;
       color: white;
+      border: 1px solid #2ea043;
+      box-shadow: 0 0 18px rgba(46, 160, 67, 0.2);
     }
 
     .primary:hover {
       background: #2ea043;
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(57, 211, 83, 0.4);
     }
 
     .secondary {
-      border: 1px solid #30363d;
-      background: #161b22;
+      border: 1px solid #245c31;
+      background: #0a110c;
+      color: #d8f3dc;
     }
 
     .secondary:hover {
-      border-color: #8b949e;
+      border-color: #39d353;
+      color: #39d353;
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(57, 211, 83, 0.18);
     }
 
     section {
@@ -138,9 +168,20 @@
       margin-bottom: 25px;
     }
 
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #39d353;
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.4);
+    }
+
     .about-text {
       max-width: 750px;
-      color: #8b949e;
+      color: #9da7a0;
       font-size: 17px;
     }
 
@@ -151,20 +192,40 @@
     }
 
     .card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
+      background: linear-gradient(
+        145deg,
+        rgba(13, 17, 16, 0.98),
+        rgba(7, 12, 8, 0.98)
+      );
+      border: 1px solid #1f5c2c;
+      border-radius: 14px;
       padding: 25px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #39d353;
+      box-shadow: 0 0 25px rgba(57, 211, 83, 0.14);
     }
 
     .card h3 {
       margin-bottom: 10px;
-      color: #58a6ff;
+      color: #39d353;
     }
 
     .card p {
-      color: #8b949e;
+      color: #9da7a0;
       margin-bottom: 20px;
+    }
+
+    .card a {
+      color: #7ee787;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      color: #39d353;
     }
 
     .tags {
@@ -177,28 +238,43 @@
       font-size: 12px;
       padding: 5px 10px;
       border-radius: 20px;
-      background: #21262d;
-      color: #c9d1d9;
+      background: #102416;
+      border: 1px solid #1f5c2c;
+      color: #7ee787;
     }
 
     .contact-box {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
+      background: linear-gradient(
+        145deg,
+        rgba(13, 17, 16, 0.98),
+        rgba(7, 12, 8, 0.98)
+      );
+      border: 1px solid #1f5c2c;
+      border-radius: 14px;
       padding: 30px;
+      box-shadow: 0 0 25px rgba(57, 211, 83, 0.05);
     }
 
     .contact-box p {
-      color: #8b949e;
+      color: #9da7a0;
       margin-bottom: 20px;
     }
 
     footer {
-      border-top: 1px solid #30363d;
-      color: #8b949e;
+      border-top: 1px solid #17351f;
+      color: #7f8b82;
       text-align: center;
       padding: 30px 0;
       font-size: 14px;
+    }
+
+    footer span {
+      color: #39d353;
+    }
+
+    ::selection {
+      background: #238636;
+      color: white;
     }
 
     @media (max-width: 600px) {
@@ -207,7 +283,17 @@
       }
 
       .hero {
-        min-height: 60vh;
+        min-height: 68vh;
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .contact-box,
+      .card {
+        padding: 22px;
       }
     }
   </style>
@@ -239,7 +325,7 @@
           </div>
 
           <h1>
-            Building and learning on the web.
+            Building and learning <span>on the web.</span>
           </h1>
 
           <p>
@@ -321,18 +407,19 @@
 
 
           <div class="card">
-            <h3>More Projects Coming</h3>
+            <h3>Learning & Experiments</h3>
 
             <p>
               I'm continuing to learn and experiment with software,
-              Linux, networking, and web technologies. New projects
-              will be added here as I build them.
+              Linux, Git, networking, and modern web technologies.
+              New projects will be added here as I build them.
             </p>
 
             <div class="tags">
               <span class="tag">Linux</span>
               <span class="tag">Git</span>
               <span class="tag">Web</span>
+              <span class="tag">Networking</span>
             </div>
           </div>
 
@@ -369,9 +456,10 @@
 
   <footer>
     <div class="container">
-      © 2026 Dandan — Built with HTML, CSS and GitHub Pages.
+      © 2026 <span>Dandan</span> — Built with HTML, CSS and GitHub Pages.
     </div>
   </footer>
 
 </body>
 </html>
+```
